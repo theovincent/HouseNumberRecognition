@@ -6,3 +6,9 @@ http://yann.lecun.com/exdb/mnist/
 
 To load a point file:
 https://towardsdatascience.com/how-to-load-matlab-mat-files-in-python-1f200e1287b5
+
+To create a Dataloader:
+https://towardsdatascience.com/building-efficient-custom-datasets-in-pytorch-2563b946fd9f
+
+To create a Classifier:
+https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html?highlight=classifier
