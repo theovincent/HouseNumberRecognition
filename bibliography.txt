@@ -1,0 +1,8 @@
+The problem to solve and the data set:
+http://ufldl.stanford.edu/housenumbers/
+
+A dataset closed to SVHN dataset:
+http://yann.lecun.com/exdb/mnist/
+
+To load a point file:
+https://towardsdatascience.com/how-to-load-matlab-mat-files-in-python-1f200e1287b5
