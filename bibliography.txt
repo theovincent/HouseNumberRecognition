@@ -1,14 +1,56 @@
 The problem to solve and the data set:
 http://ufldl.stanford.edu/housenumbers/
 
+
 A dataset closed to SVHN dataset:
 http://yann.lecun.com/exdb/mnist/
+
 
 To load a point file:
 https://towardsdatascience.com/how-to-load-matlab-mat-files-in-python-1f200e1287b5
 
+
 To create a Dataloader:
 https://towardsdatascience.com/building-efficient-custom-datasets-in-pytorch-2563b946fd9f
 
+
 To create a Classifier:
 https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html?highlight=classifier
+
+https://medium.com/dair-ai/a-simple-neural-network-from-scratch-with-pytorch-and-google-colab-c7f3830618e0
+
+
+Pytorch documentation for nn.Module:
+https://pytorch.org/docs/stable/nn.html
+
+
+Parameters for Conv2d, MaxPool2d:
+https://d2l.ai/chapter_convolutional-neural-networks/padding-and-strides.html
+
+https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md
+
+
+Net structure:
+https://towardsdatascience.com/convolutional-neural-network-for-image-classification-with-implementation-on-python-using-pytorch-7b88342c9ca9
+
+
+Global average pooling:
+https://alexisbcook.github.io/2017/global-average-pooling-layers-for-object-localization/
+
+
+Error of dtype between Pytorch and Python:
+https://discuss.pytorch.org/t/runtimeerror-expected-object-of-scalar-type-double-but-got-scalar-type-float-for-argument-2-weight/38961/13
+
+
+Error in format:
+https://discuss.pytorch.org/t/runtimeerror-multi-target-not-supported-newbie/10216
+
+
+To train to classifier:
+https://towardsdatascience.com/how-to-train-an-image-classifier-in-pytorch-and-use-it-to-perform-basic-inference-on-single-images-99465a1e9bf5
+
+https://autogluon.mxnet.io/tutorials/torch/hpo.html
+
+
+Resnet:
+https://arxiv.org/abs/1512.03385
