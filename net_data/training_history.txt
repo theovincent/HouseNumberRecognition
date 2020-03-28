@@ -1,0 +1,1 @@
+lay3training_0 : on train_32x32.mat; nb_epochs = 20, size_batch = 15
