@@ -58,3 +58,10 @@ https://arxiv.org/abs/1512.03385
 
 To train and to see the validation in the same time:
 https://www.javatpoint.com/pytorch-validation-of-convolutional-neural-network-model
+
+https://www.researchgate.net/post/what_is_the_best_way_to_measure_accuracy_over_epochs
+
+
+How to use BatchNorm2d:
+https://discuss.pytorch.org/t/what-does-model-eval-do-for-batchnorm-layer/7146
+
