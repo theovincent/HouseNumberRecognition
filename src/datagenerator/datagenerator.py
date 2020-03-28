@@ -4,6 +4,7 @@ This module is a data generator adapted to the SVHN dataset.
 Classes:
     HouseNumberDataset
 """
+from pathlib import Path
 from torch.utils.data import Dataset
 from scipy.io import loadmat
 import numpy as np
@@ -94,6 +95,6 @@ def normalize(img):
 
 
 if __name__ == '__main__':
-    DATA_ROOT = 'data/train_32x32.mat'
+    DATA_ROOT = Path("../../data/train_32x32.mat")
     DATASET = HouseNumberDataset(DATA_ROOT, for_dataloader=True)
-    print(DATASET[0][0].shape)
+    print(len(DATASET))
