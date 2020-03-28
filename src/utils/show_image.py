@@ -1,5 +1,5 @@
 """
-This code plot an array image and indicates the label with the index of the image.
+This code plots an array image and indicates the label with the index of the image.
 """
 import matplotlib.pyplot as plt
 import numpy.random as rd

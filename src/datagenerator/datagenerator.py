@@ -28,8 +28,8 @@ class HouseNumberDataset(Dataset):
                 or if it will be use to visualise the image.
         """
         data_dictionary = loadmat(data_root)
-        self.samples = data_dictionary["X"]  # [:, :, :, : 500]
-        self.labels = data_dictionary["y"]  # [: 500]
+        self.samples = data_dictionary["X"]  # [:, :, :, : 500]  # to run with a smaller data set
+        self.labels = data_dictionary["y"]  # [: 500]  # to run with a smaller data set
         self.training = for_dataloader
 
     def __len__(self):
