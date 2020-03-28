@@ -65,3 +65,10 @@ https://www.researchgate.net/post/what_is_the_best_way_to_measure_accuracy_over_
 How to use BatchNorm2d:
 https://discuss.pytorch.org/t/what-does-model-eval-do-for-batchnorm-layer/7146
 
+
+Python documentation:
+https://docs.python.org/fr/3/library/pathlib.html
+
+Metrics:
+https://towardsdatascience.com/the-5-classification-evaluation-metrics-you-must-know-aa97784ff226
+
