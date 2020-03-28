@@ -54,3 +54,7 @@ https://autogluon.mxnet.io/tutorials/torch/hpo.html
 
 Resnet:
 https://arxiv.org/abs/1512.03385
+
+
+To train and to see the validation in the same time:
+https://www.javatpoint.com/pytorch-validation-of-convolutional-neural-network-model
