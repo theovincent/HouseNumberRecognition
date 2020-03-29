@@ -6,9 +6,9 @@ import numpy.random as rd
 import numpy as np
 
 
-def store_metrics(table, name_path):
+def store_results(table, name_path):
     """
-    Store the metric in a .txt file.
+    Store the results in a .txt file.
 
     Args:
         table (array, one dimension): the array to be stored.
@@ -22,9 +22,9 @@ def store_metrics(table, name_path):
             file.write(string_row)
 
 
-def load_metrics(name_path):
+def load_results(name_path):
     """
-    Read the metric at the end of the path.
+    Read the results at the end of the path.
 
     Args:
         name_path (string): the complete path where the table is stored.
@@ -42,7 +42,7 @@ def load_metrics(name_path):
 
 if __name__ == "__main__":
     ACCURACY = rd.randint(1, 4, 9)
-    SAVE_ROOT = Path("../../net_data/results/test.txt")
-    store_metrics(ACCURACY, SAVE_ROOT)
-    LOSS = load_metrics(SAVE_ROOT)
+    SAVE_ROOT = Path("../../net_data/results/doc_test.txt")
+    store_results(ACCURACY, SAVE_ROOT)
+    LOSS = load_results(SAVE_ROOT)
     print(LOSS)
