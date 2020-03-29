@@ -1,2 +1,3 @@
 
 *.txt
+!lay6test_accuracy_2.txt

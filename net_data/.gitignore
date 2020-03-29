@@ -1,2 +1,4 @@
 
 *.pth
+!lay3training_2.pth
+!lay6training_2.pth
