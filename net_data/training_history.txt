@@ -1,1 +1,8 @@
 lay3training_0 : on train_32x32.mat; nb_epochs = 20, size_batch = 15
+lay3training_1 : on train_32x32.mat; nb_epochs = 8, size_batch = 15; the training 0 is not used.
+lay3training_2 : on extra_32x32.mat; nb_epochs = 2, size_batch = 15; the training 1 is used.
+
+
+lay6training_0 : on train_32x32.mat; nb_epochs = 15, size_batch = 15
+lay6training_1 : on train_32x32.mat; nb_epochs = 7, size_batch = 15; the training 0 is not used.
+lay6training_1 : on extra_32x32.mat; nb_epochs = 2, size_batch = 15; the training 1 is used.

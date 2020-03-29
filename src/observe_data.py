@@ -14,7 +14,7 @@ NB_WORKERS = 0
 
 # Paths to the data sets
 TRAIN_ROOT = Path("../data/train_32x32.mat")
-EXTRA_ROOT = Path("../data/test_32x32.mat")
+EXTRA_ROOT = Path("../data/extra_32x32.mat")
 TEST_ROOT = Path("../data/test_32x32.mat")
 
 # Data generators

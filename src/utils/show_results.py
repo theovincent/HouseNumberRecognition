@@ -39,6 +39,6 @@ def show_results(root_results1, axe_legend, root_results2=""):
 
 
 if __name__ == "__main__":
-    SAVE_RESULTS1 = Path("../../net_data/results/lay3training_accuracy_0.txt")
-    SAVE_RESULTS2 = Path("../../net_data/results/lay3test_accuracy_0.txt")
+    SAVE_RESULTS1 = Path("../../net_data/results/train/lay3training_F_beta_1.txt")
+    SAVE_RESULTS2 = Path("../../net_data/results/test/lay3test_F_beta_1.txt")
     show_results(SAVE_RESULTS1, "epochs", SAVE_RESULTS2)

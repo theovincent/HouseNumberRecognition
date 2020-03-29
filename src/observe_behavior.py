@@ -13,6 +13,7 @@ import torch
 import torch.nn as nn
 from src.datagenerator.datagenerator import HouseNumberDataset
 from src.nets.three_layer_net import Net3Layers
+from src.nets.six_layer_net import Net6Layers
 from src.utils.show_image import show_image
 
 
@@ -107,8 +108,8 @@ def print_mistakes(net, set_root):
 
 if __name__ == "__main__":
     # Parameters
-    NB_LAYERS = 3  # !!! The net has to be changed when created underneath !!!
-    CURRENT_TRAINING = 0
+    NB_LAYERS = 6  # !!! The net has to be changed when created underneath !!!
+    CURRENT_TRAINING = 2
     # If there is a BrokenPipe Error on windows, put NB_WORKERS = 0
     NB_WORKERS = 0
     # The number of example where the nets is mistaken
@@ -119,7 +120,7 @@ if __name__ == "__main__":
     TEST_ROOT = Path("../data/test_32x32.mat")
 
     # Create the nets. !!! To change if we want to change the number of layers !!!
-    NET = Net3Layers()
+    NET = Net6Layers()
 
     # Use GPU, if it is available
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")

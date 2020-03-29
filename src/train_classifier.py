@@ -14,15 +14,15 @@ from src.utils.store_results import store_results
 from src.utils.metrics import Metrics
 
 # Parameters
-NB_LAYERS = 3  # !!! The net has to be changed when created underneath !!!
-NB_TRAINING = 0  # The number of training that has been done
-NB_EPOCHS = 10
+NB_LAYERS = 6  # !!! The net has to be changed when created underneath !!!
+NB_TRAINING = 2  # The number of training that has been done
+NB_EPOCHS = 2
 SIZE_BATCHES = 15
 # If there is a BrokenPipe Error on windows, put NB_WORKERS = 0
 NB_WORKERS = 0
 
 # Paths
-TRAIN_ROOT = Path("../data/train_32x32.mat")
+TRAIN_ROOT = Path("../data/extra_32x32.mat")
 TEST_ROOT = Path("../data/test_32x32.mat")
 SAVE_ROOT = Path("../net_data/") / "lay{}training_{}.pth".format(NB_LAYERS, NB_TRAINING)
 LOAD_ROOT = Path("../net_data/") / "lay{}training_{}.pth".format(NB_LAYERS, NB_TRAINING - 1)
@@ -38,7 +38,7 @@ TRAINLOADER = DataLoader(TRAINSET, batch_size=SIZE_BATCHES, shuffle=True, num_wo
 TESTLOADER = DataLoader(TESTSET, batch_size=SIZE_BATCHES, shuffle=True, num_workers=NB_WORKERS)
 
 # Create the nets. !!! To change if we want to change the number of layers !!!
-NET = Net3Layers()
+NET = Net6Layers()
 
 # Use GPU, if it is available
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -106,8 +106,7 @@ for epoch in range(NB_EPOCHS):
 
             # Register statistics
             for index_image in range(labels.size()[0]):
-                if int(labels[index_image]) != int(torch.argmax(outputs[index_image])):
-                    TEST_METRICS.update(int(torch.argmax(outputs[index_image])), labels[index_image], loss.item())
+                TEST_METRICS.update(int(torch.argmax(outputs[index_image])), labels[index_image], loss.item())
 
     # Save the metrics
     TEST_METRICS.save(epoch)
@@ -125,10 +124,10 @@ torch.save(NET.state_dict(), SAVE_ROOT)
 RESULTS_ROOT_TRAIN = Path("../net_data/results/train/")
 RESULTS_ROOT_TEST = Path("../net_data/results/test/")
 
-TRAIN_AVG_ACC_ROOT = RESULTS_ROOT_TRAIN / "lay{}training_avegrage_accuracy_{}.txt".format(NB_LAYERS, NB_TRAINING)
-TRAIN_F_BETA_ROOT = RESULTS_ROOT_TRAIN / "lay{}training_F_beta_{}.txt".format(NB_LAYERS, NB_TRAINING)
-TRAIN_ACC_ROOT = RESULTS_ROOT_TRAIN / "lay{}training_accuracy_{}.txt".format(NB_LAYERS, NB_TRAINING)
-TRAIN_LOSS_ROOT = RESULTS_ROOT_TRAIN / "lay{}training_loss_{}.txt".format(NB_LAYERS, NB_TRAINING)
+TRAIN_AVG_ACC_ROOT = RESULTS_ROOT_TRAIN / "lay{}extra_average_accuracy_{}.txt".format(NB_LAYERS, NB_TRAINING)
+TRAIN_F_BETA_ROOT = RESULTS_ROOT_TRAIN / "lay{}extra_F_beta_{}.txt".format(NB_LAYERS, NB_TRAINING)
+TRAIN_ACC_ROOT = RESULTS_ROOT_TRAIN / "lay{}extra_accuracy_{}.txt".format(NB_LAYERS, NB_TRAINING)
+TRAIN_LOSS_ROOT = RESULTS_ROOT_TRAIN / "lay{}extra_loss_{}.txt".format(NB_LAYERS, NB_TRAINING)
 
 TEST_AVG_ACC_ROOT = RESULTS_ROOT_TEST / "lay{}test_average_accuracy_{}.txt".format(NB_LAYERS, NB_TRAINING)
 TEST_F_BETA_ROOT = RESULTS_ROOT_TEST / "lay{}test_F_beta_{}.txt".format(NB_LAYERS, NB_TRAINING)
@@ -143,5 +142,5 @@ store_results(TRAIN_LOSS, TRAIN_LOSS_ROOT)
 
 store_results(TEST_AVG_ACC, TEST_AVG_ACC_ROOT)
 store_results(TEST_F_BETA, TEST_F_BETA_ROOT)
-store_results(TEST_ACC, TEST_AVG_ACC_ROOT)
+store_results(TEST_ACC, TEST_ACC_ROOT)
 store_results(TEST_LOSS, TEST_LOSS_ROOT)
