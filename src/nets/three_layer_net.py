@@ -1,6 +1,6 @@
 """
-This module is the classifier. It is make to classify 11 classes.
-This classifier is essentially composed of three layers.
+This module is the classifier. It is make to classify 10 classes.
+This classifier is mainly composed of three layers.
 
 Classes:
     Net
@@ -10,7 +10,7 @@ import torch.nn as nn
 
 class Net3Layers(nn.Module):
     """
-    A CNN to classify 11 classes.
+    A CNN to classify 10 classes.
     """
     def __init__(self):
         """
@@ -46,8 +46,8 @@ class Net3Layers(nn.Module):
         # Output size : (1 x 1 x 128)
 
         # Input size : (1 x 128)
-        self.linear11 = nn.Linear(128, 11)
-        # Output size : (1 x 11)
+        self.linear10 = nn.Linear(128, 10)
+        # Output size : (1 x 10)
 
         self.soft_max = nn.Softmax(dim=1)
 
@@ -84,8 +84,8 @@ class Net3Layers(nn.Module):
         # Size : (1 x 1 x 128)
         batch = batch.view(-1, 128)
         # Size : (1 x 128)
-        batch = self.linear11(batch)
-        # Size : (1 x 11)
+        batch = self.linear10(batch)
+        # Size : (1 x 10)
 
         return batch
 

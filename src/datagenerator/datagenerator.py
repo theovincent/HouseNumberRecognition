@@ -55,9 +55,12 @@ class HouseNumberDataset(Dataset):
 
                                   label (int): the label of the image
         """
+        label = self.labels[idx]
+        if label[0] == 10:
+            label = np.zeros(1, dtype=np.uint8)
         if self.training:
-            return self.transform(idx), self.labels[idx]
-        return self.samples[:, :, :, idx], self.labels[idx]
+            return self.transform(idx), label
+        return self.samples[:, :, :, idx], label
 
     def transform(self, idx):
         """
@@ -75,26 +78,28 @@ class HouseNumberDataset(Dataset):
         image = np.ones((nb_colors, height, width), dtype=np.double)
 
         for color in range(nb_colors):
-            image[color, :, :] = normalize(self.samples[:, :, color, idx])
+            image[color, :, :] = self.normalize(idx, color)
 
         return image
 
+    def normalize(self, idx, color):
+        """
+        Normalize the color image between -1 to 1.
 
-def normalize(img):
-    """
-    Normalize the img between -1 to 1.
+        Args:
+            idx (int): the image index.
 
-    Args:
-        img (array, any shape): the image to normalize.
+            color (int): the index of the color.
 
-    Return:
-        (array, same shape as img): the normalized image.
-    """
-    min_image = np.min(img)
-    return 2 * (img - min_image) / (np.max(img) - min_image) - 1
+        Return:
+            (array, same shape as img): the normalized color.
+        """
+        img = self.samples[:, :, color, idx]
+        min_image = np.min(img)
+        return 2 * (img - min_image) / (np.max(img) - min_image) - 1
 
 
 if __name__ == '__main__':
     DATA_ROOT = Path("../../data/train_32x32.mat")
     DATASET = HouseNumberDataset(DATA_ROOT, for_dataloader=True)
-    print(len(DATASET))
+    print(DATASET[52][1])
